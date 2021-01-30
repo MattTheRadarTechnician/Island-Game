@@ -10,7 +10,6 @@ screen = pygame.display.set_mode((800,600))
 
 class Menu:
     def __init__(self):
-        self.enabled = True
         #Superficie
         self.menu_surface = pygame.Surface((800, 600))
         #Texto Principal
@@ -34,14 +33,13 @@ class Menu:
         #Desenha o menu por cima do display
         screen.blit(self.menu_surface, (0, 0))
         #Click to start
-    def click_start(self,game_screen):
-        if self.enabled:
-            game_screen.start_game()
-            self.enabled = False
 
 #Função pra ver se eu consigo iniciar o jogo mas não deu certo
 def game_start(screen):
-    pygame.display.set_mode((800,600)).fill((0,0,0))
+    screen.fill((0,0,0))
+    Fonte = pygame.font.Font('freesansbold.ttf',64)
+    Texto = Fonte.render("Game Start", True, (255, 255, 255))
+    screen.blit(Texto,(200,150))
 
 #Variables
 start = False
